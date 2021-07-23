@@ -4,9 +4,35 @@
 #include "pch.h"
 #include <iostream>
 
+	using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	long a[1000] = { 1, 1, 3, 3,3, 5, 5, 5, 2, 4};
+		int i;
+		long b[1000], f, j;
+		j = 0; f = 0;
+		for (i = 0; i < 10; i++)
+		{
+			//cin >> a[i];
+			if (i == 1) { if (a[i - 1] != a[i])cout << a[i - 1] << " "; b[j - 1] = a[i - 1]; j++; }
+			if (i != 0) {
+				if (f == 1) {
+					if (a[i - 1] != a[i]) {
+						if (a[i - 2] != a[i - 1]) {
+							b[j] = a[i - 1]; j++;
+							cout << a[i - 1] << " ";
+							f = 0;
+						}
+					}
+				}
+				if (a[i - 1] != a[i])
+				{
+					if (i == 9) { cout << a[i]; }
+					f = 1;
+				}
+			}
+		}
+		return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
